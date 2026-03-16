@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
+    <header>
+    <a href="../index.html">
+      <img class="rogo" src="../img/rogo.png" alt="ロゴ">
+      <img class="rogo2" src="../img/rogo2.jpg" alt="ロゴ">
+    </a>
+    </header>
+
     <h1>診断結果</h1>
 
     <h2 id="result"></h2>
@@ -26,23 +33,22 @@
     let resultText="";
 
     if(score <= 28){
-    resultText = "あなたは【超慎重恋愛タイプ】です。恋愛はゆっくり進める派。";
+    resultText = '<img src="../img/tyou.png" class="result2">';
     }
     else if(score <= 36){
-    resultText = "あなたは【慎重恋愛タイプ】です。";
+    resultText = '<img src="../img/sintyo.png" class="result2">';
     }
     else if(score <= 44){
-    resultText = "あなたは【バランス恋愛タイプ】です。";
+    resultText = '<img src="../img/baransu.png" class="result2">';
     }
     else if(score <= 52){
-    resultText = "あなたは【積極恋愛タイプ】です。";
+    resultText = '<img src="../img/sekyoku.png" class="result2">';
     }
     else{
-    resultText = "あなたは【情熱恋愛タイプ】です。";
+    resultText = '<img src="../img/jonetu.png" class="result2">';
     }
 
-    document.getElementById("result").textContent =
-    "あなたの点数："+score+"点\n"+resultText;
+  document.getElementById("result").innerHTML = resultText;
     </script>
   </body>
 </html>
