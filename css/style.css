@@ -11,7 +11,9 @@ header {
 
 body {
     background-color: rgb(251, 223, 246);
-    background-size:cover;
+    font-family: "Yomogi", cursive;
+    /* font-family: "Kiwi Maru", serif; */
+    line-height: 1.8;
 }
 
 .block {
@@ -37,7 +39,7 @@ body {
 }
 
 .resulutbtn {
-    border-radius: 100px;
+    border-radius: 10px;
     font-size: 25px;
     padding: 10px;
     background-color: rgb(245,170,190);
@@ -50,7 +52,8 @@ body {
 }
 
 .rogo2 {
-    height: 80px;
+    height: 70px;
+    margin-top: 5px;
     float: right
 }
 
