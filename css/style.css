@@ -40,9 +40,13 @@ body {
 
 .resulutbtn {
     border-radius: 10px;
-    font-size: 25px;
+    width: 200px;
+    height: 70px;
+    /* font-size: 25px; */
     padding: 10px;
-    background-color: rgb(245,170,190);
+    /* background-color: rgb(245,170,190); */
+    background-image: url(../img/sindan.jpg);
+    background-size: 100%;
     margin-bottom: 20px;
 }
 

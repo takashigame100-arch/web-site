@@ -5,19 +5,41 @@ form.addEventListener("submit", function(e){
 
 e.preventDefault();
 
-let score = 0;
+let active = 0;
+let care = 0;
+let stable = 0;
+let depend = 0;
 
 for(let i = 1; i <= 20; i++){
 
 let selected = document.querySelector(`input[name="q${i}"]:checked`);
 
-if(selected){
-score += Number(selected.value);
+if(!selected) continue;
+
+let value = Number(selected.value);
+
+if([1,3,6,12,14].includes(i)){
+active += value;
+}
+
+else if([2,11,18,17].includes(i)){
+care += value;
+}
+
+else if([4,10,16,20].includes(i)){
+stable += value;
+}
+
+else if([5,7,8,9,13,15,19].includes(i)){
+depend += value;
 }
 
 }
 
-localStorage.setItem("score", score);
+localStorage.setItem("active",active);
+localStorage.setItem("care",care);
+localStorage.setItem("stable",stable);
+localStorage.setItem("depend",depend);
 
 location.href = "result.html";
 
