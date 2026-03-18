@@ -1,6 +1,8 @@
 const form = document.getElementById("loveForm");
 const bgm = document.getElementById("bgm");
 
+console.log("bgm:", bgm);
+
 
 /* =========================
    たかしの回答
@@ -175,12 +177,36 @@ createHeart(true);
 
 setInterval(()=>createHeart(false), 500);
 
-/* BGM開始 */
-function startBGM(){
-    localStorage.setItem("playBGM", "1");
+/* =========================
+   診断スタート
+========================= */
+
+const startBtn = document.getElementById("startBtn");
+
+if(startBtn){
+
+startBtn.addEventListener("click", function(){
+
+console.log("スタートボタン押された");   // ←確認用
+
+/* BGM再生 */
+if(bgm){
+bgm.volume = 0.3;
+bgm.play().then(()=>{
+console.log("BGM再生成功");
+}).catch(err=>{
+console.log("BGM再生失敗", err);
+});
 }
 
-if(localStorage.getItem("playBGM") === "1" && bgm){
-    bgm.volume = 0.3;
-    bgm.play().catch(()=>{});
+/* 質問表示 */
+if(form){
+form.style.display = "block";
+}
+
+/* ボタン消す */
+startBtn.style.display = "none";
+
+});
+
 }

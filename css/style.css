@@ -93,6 +93,11 @@ p {
     padding-left: 10px;
 }
 
+/* 診断を隠す */
+#loveForm{
+display:none;
+}
+
 /* ラジオボタン */
 :root {
   --radioBtn-size: 12px;

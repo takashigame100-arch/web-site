@@ -17,6 +17,14 @@
     </header>
 
     <div class="block">
+      <button id="showResult" class="styled2">
+      結果を見る
+      </button>
+    </div>
+
+    <div id="resultArea" style="display:none;">
+
+    <div class="block">
       <img src="../img/result.jpg" width="300px">
     </div>
 
@@ -51,7 +59,7 @@
       <div class="bar"><div id="dependBar"></div></div>
     </div>
 
-</div>
+    </div>
 
     <div class="block">
     <a href="../index.html">
@@ -60,10 +68,23 @@
 
     </div>
 
+  </div>
+
+
     <img id="scaryImg" src="../img/scary.png" class="scary">
-    <audio id="scarySound" src="../img/scary.mp3"></audio>
+    <audio id="scarySound" src="../music/scary.wav"></audio>
 
     <script>
+
+    document.getElementById("showResult").addEventListener("click", function(){
+
+    document.getElementById("resultArea").style.display = "block";
+
+    showResult();
+
+    });
+
+    function showResult(){
 
     let active = Number(localStorage.getItem("active"));
     let care = Number(localStorage.getItem("care"));
@@ -198,6 +219,7 @@
     },3000);
 
     },3000);
+    }
     </script>
   </body>
 </html>
