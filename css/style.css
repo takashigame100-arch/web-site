@@ -38,6 +38,11 @@ body {
     margin-bottom: 20px;
 }
 
+p label{
+display:block;
+margin:8px 0;
+}
+
 .resulutbtn {
     border-radius: 10px;
     width: 200px;
@@ -170,4 +175,41 @@ input[type="radio"]:checked {
     transform: translateY(-110vh);
     opacity:0;
   }
+}
+
+.statusBox{
+width:300px;
+margin:30px auto;
+font-family:"Yomogi", cursive;
+}
+
+.status{
+margin:10px 0;
+}
+
+.bar{
+width:100%;
+background:#eee;
+height:20px;
+border-radius:10px;
+overflow:hidden;
+}
+
+.bar div{
+height:100%;
+background:#ff6fa5;
+width:0%;
+transition:1s;
+border-radius:10px;
+}
+
+.scary{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+display:none;
+z-index:9999;
 }

@@ -17,10 +17,41 @@
     </header>
 
     <div class="block">
-      <img src="../img/kekka.jpg" width="300px">
+      <img src="../img/result.jpg" width="300px">
     </div>
 
-    <h2 id="result"></h2>
+    <h2 id="result"></h2><br>
+
+    <h2 id="aishoText"></h2>
+
+    <div class="block">
+      <img id="aishoImg" src="" class="result2">
+    </div>
+
+    <div class="statusBox">
+      <h3>恋愛ステータス</h3>
+
+      <div class="status">
+      <span>積極性</span>
+      <div class="bar"><div id="activeBar"></div></div>
+      </div>
+
+      <div class="status">
+      <span>思いやり</span>
+      <div class="bar"><div id="careBar"></div></div>
+      </div>
+
+      <div class="status">
+      <span>安定</span>
+      <div class="bar"><div id="stableBar"></div></div>
+      </div>
+
+      <div class="status">
+      <span>依存</span>
+      <div class="bar"><div id="dependBar"></div></div>
+    </div>
+
+</div>
 
     <div class="block">
     <a href="../index.html">
@@ -28,6 +59,9 @@
     </a>    
 
     </div>
+
+    <img id="scaryImg" src="../img/scary.png" class="scary">
+    <audio id="scarySound" src="../img/scary.mp3"></audio>
 
     <script>
 
@@ -62,7 +96,7 @@
 
     else if(max === care){
 
-    resultText = '<img src="../img/baransu.png" class="result2">';
+    resultText = '<img src="../img/omoiyari.png" class="result2">';
 
     resultDesc = `
     <div class="resultBox">
@@ -81,7 +115,7 @@
 
     else if(max === stable){
 
-    resultText = '<img src="../img/sintyo.png" class="result2">';
+    resultText = '<img src="../img/antei.png" class="result2">';
 
     resultDesc = `
     <div class="resultBox">
@@ -100,7 +134,7 @@
 
     else{
 
-    resultText = '<img src="../img/tyou.png" class="result2">';
+    resultText = '<img src="../img/sintyo.png" class="result2">';
 
     resultDesc = `
     <div class="resultBox">
@@ -118,6 +152,52 @@
     }
 
     document.getElementById("result").innerHTML = resultText + resultDesc;
+
+    let aisho = Number(localStorage.getItem("aisho"));
+
+    document.getElementById("aishoText").innerText =
+    "たかしとの相性 " + aisho + "%";
+
+    let img = "";
+
+    if(aisho >= 80){
+    img = "../img/aisho_best.png";
+    }
+    else if(aisho >= 60){
+    img = "../img/aisho_good.png";
+    }
+    else if(aisho >= 40){
+    img = "../img/aisho_normal.png";
+    }
+    else{
+    img = "../img/aisho_bad.png";
+    }
+
+    document.getElementById("aishoImg").src = img;
+
+    document.getElementById("activeBar").style.width = active * 10 + "%";
+    document.getElementById("careBar").style.width = care * 10 + "%";
+    document.getElementById("stableBar").style.width = stable * 10 + "%";
+    document.getElementById("dependBar").style.width = depend * 10 + "%";
+
+    const scaryImg = document.getElementById("scaryImg");
+    const scarySound = document.getElementById("scarySound");
+
+    setTimeout(() => {
+
+    scaryImg.style.display = "block";
+    scarySound.play();
+
+    setTimeout(() => {
+
+    scaryImg.style.display = "none";
+
+    scarySound.pause();
+    scarySound.currentTime = 0;
+
+    },3000);
+
+    },3000);
     </script>
   </body>
 </html>
