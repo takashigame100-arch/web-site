@@ -1,7 +1,17 @@
 const form = document.getElementById("loveForm");
+const bgm = document.getElementById("bgm");
 
 /* =========================
-   たかしの回答（ここを自分で変更）
+   BGM再生
+========================= */
+
+if (bgm) {
+    bgm.volume = 0.3;
+    bgm.play().catch(()=>{});
+}
+
+/* =========================
+   たかしの回答
 ========================= */
 
 const takashiAnswers = [
@@ -43,14 +53,14 @@ form.addEventListener("submit", function(e){
 
 e.preventDefault();
 
+/* ---------- 診断計算 ---------- */
+
 let active = 0;
 let care = 0;
 let stable = 0;
 let depend = 0;
 
 let aisho = 0;
-
-/* ---------- 診断計算 ---------- */
 
 for(let i = 1; i <= 20; i++){
 
@@ -65,43 +75,28 @@ let value = Number(selected.value);
 if([1,3,6,12,14].includes(i)){
 active += value;
 }
-
 else if([2,11,18,17].includes(i)){
 care += value;
 }
-
 else if([4,10,16,20].includes(i)){
 stable += value;
 }
-
 else if([5,7,8,9,13,15,19].includes(i)){
 depend += value;
 }
 
-/* ---------- 相性計算 ---------- */
-
-/* ---------- 相性計算 ---------- */
+/* 相性 */
 
 let takashi = takashiAnswers[i-1];
 
-/* 例外処理（Q9 甘えたい×甘えたい） */
-
 if(i === 9 && value === 3 && takashi === 3){
-
 aisho += 0;
-
 }
-
 else if(value === takashi){
-
 aisho += 5;
-
 }
-
 else if(Math.abs(value - takashi) === 1){
-
 aisho += 2;
-
 }
 
 }
@@ -115,9 +110,28 @@ localStorage.setItem("depend", depend);
 
 localStorage.setItem("aisho", aisho);
 
+/* ---------- BGMフェードアウト ---------- */
+
+if(bgm){
+
+let fade = setInterval(()=>{
+
+if(bgm.volume > 0.05){
+bgm.volume -= 0.05;
+}else{
+bgm.pause();
+clearInterval(fade);
+}
+
+},100);
+
+}
+
 /* ---------- 結果ページ ---------- */
 
+setTimeout(()=>{
 location.href = "result.html";
+},500);
 
 });
 
@@ -154,9 +168,7 @@ heart.style.bottom = Math.random() * 100 + "vh";
 container.appendChild(heart);
 
 setTimeout(()=>{
-
 heart.remove();
-
 }, duration * 1000);
 
 }
@@ -164,9 +176,7 @@ heart.remove();
 /* 初期ハート */
 
 for(let i = 0; i < 20; i++){
-
 createHeart(true);
-
 }
 
 /* 生成 */
