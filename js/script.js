@@ -1,14 +1,6 @@
 const form = document.getElementById("loveForm");
 const bgm = document.getElementById("bgm");
 
-/* =========================
-   BGM再生
-========================= */
-
-if (bgm) {
-    bgm.volume = 0.3;
-    bgm.play().catch(()=>{});
-}
 
 /* =========================
    たかしの回答
@@ -182,3 +174,13 @@ createHeart(true);
 /* 生成 */
 
 setInterval(()=>createHeart(false), 500);
+
+/* BGM開始 */
+function startBGM(){
+    localStorage.setItem("playBGM", "1");
+}
+
+if(localStorage.getItem("playBGM") === "1" && bgm){
+    bgm.volume = 0.3;
+    bgm.play().catch(()=>{});
+}
