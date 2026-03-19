@@ -182,31 +182,26 @@ setInterval(()=>createHeart(false), 500);
 ========================= */
 
 const startBtn = document.getElementById("startBtn");
+const sindanBlock = document.querySelector(".block_sindan");
 
 if(startBtn){
+  startBtn.addEventListener("click", function(){
 
-startBtn.addEventListener("click", function(){
+    // 画面を消す
+    if(sindanBlock){
+      sindanBlock.style.display = "none";
+    }
 
-console.log("スタートボタン押された");   // ←確認用
+    // BGM再生
+    if(bgm){
+      bgm.volume = 0.15;
+      bgm.play();
+    }
 
-/* BGM再生 */
-if(bgm){
-bgm.volume = 0.3;
-bgm.play().then(()=>{
-console.log("BGM再生成功");
-}).catch(err=>{
-console.log("BGM再生失敗", err);
-});
-}
+    // 質問表示
+    if(form){
+      form.style.display = "block";
+    }
 
-/* 質問表示 */
-if(form){
-form.style.display = "block";
-}
-
-/* ボタン消す */
-startBtn.style.display = "none";
-
-});
-
+  });
 }

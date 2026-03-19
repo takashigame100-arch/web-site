@@ -6,7 +6,7 @@
 header {
     background-color: rgb(245,170,190);
     height: 80px;
-    box-shadow:0 3px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 body {
@@ -21,27 +21,46 @@ body {
     text-align: center;
 }
 
-.styled {
-    border-radius: 100px;
-    font-size: 25px;
-    padding: 10px;
-    background-color: rgb(245,170,190);
-    margin-top: 20px;
+.block_sindan {
+    margin-top: 120px;
+    text-align: center;
 }
 
-.styled2 {
-    border-radius: 100px;
-    font-size: 25px;
-    padding: 10px;
-    background-color: rgb(252, 255, 235);
-    margin-top: 20px;
-    margin-bottom: 20px;
+.styled {
+  display: block;
+  margin: 30px auto;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(45deg, #ff9ecf, #ffc3e0);
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.styled2{
+  display: block;
+  margin: 30px auto;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(45deg, #ff9ecf, #ffc3e0);
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 p label{
 display:block;
 margin:8px 0;
 }
+
 
 .resulutbtn {
     border-radius: 10px;
@@ -72,6 +91,7 @@ margin:8px 0;
 
 .img {
     height: 40vh;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .result2 {
@@ -91,6 +111,16 @@ p {
     margin-left: 10px;
     margin-right: 10px;
     padding-left: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transition: 0.2s;
+}
+
+p:active{
+  transform: scale(0.97);
+}
+
+a {
+  text-decoration: none;
 }
 
 /* 診断を隠す */

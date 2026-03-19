@@ -16,7 +16,11 @@
     </a>
     </header>
 
-    <div class="block">
+    <div class="block" id="startBlock">
+      <h2 class="block_sindan">
+        診断結果が出ました…♡<br>
+        タップして確認してください
+      </h2>
       <button id="showResult" class="styled2">
       結果を見る
       </button>
@@ -78,9 +82,12 @@
 
     document.getElementById("showResult").addEventListener("click", function(){
 
-    document.getElementById("resultArea").style.display = "block";
+      // 👇 まとめて消す
+      document.getElementById("startBlock").style.display = "none";
 
-    showResult();
+      document.getElementById("resultArea").style.display = "block";
+
+      showResult();
 
     });
 
@@ -207,6 +214,7 @@
     setTimeout(() => {
 
     scaryImg.style.display = "block";
+    scarySound.volume = 1;
     scarySound.play();
 
     setTimeout(() => {
